@@ -82,7 +82,6 @@ struct DashboardView: View {
             }
             .onPreferenceChange(ContentHeightKey.self) { contentHeight = $0 }
         }
-        .ignoresSafeArea()
         .onReceive(clockTimer) { date in
             currentDate = date
             wordOfDayService.pick(for: date)
