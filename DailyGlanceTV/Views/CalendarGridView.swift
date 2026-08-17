@@ -55,6 +55,8 @@ struct CalendarGridView: View {
 
     private var today: Int { calendar.component(.day, from: date) }
 
+    private var moonPhase: MoonPhase { MoonPhase.compute(for: date) }
+
     var body: some View {
         DashboardCard {
             VStack(alignment: .leading, spacing: 12) {
@@ -93,6 +95,16 @@ struct CalendarGridView: View {
                             .lineLimit(1)
                     }
                     .padding(.top, 2)
+                }
+
+                HStack(spacing: 6) {
+                    Image(systemName: moonPhase.symbolName)
+                        .font(.system(size: 13))
+                        .foregroundStyle(.white.opacity(0.6))
+                    Text("\(moonPhase.name) · \(moonPhase.illumination)%")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.6))
+                        .lineLimit(1)
                 }
             }
             .padding(26)

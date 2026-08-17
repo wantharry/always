@@ -5,6 +5,7 @@ struct DashboardView: View {
     @StateObject private var weatherService = WeatherService()
     @StateObject private var newsService = NewsService()
     @StateObject private var musicPlayer = MusicPlayerService()
+    @StateObject private var wordOfDayService = WordOfDayService()
 
     @State private var currentDate = Date()
 
@@ -21,6 +22,9 @@ struct DashboardView: View {
                 ClockView(date: currentDate)
                     .frame(maxWidth: .infinity)
                     .padding(.top, 56)
+
+                WordOfDayView(wordOfDay: wordOfDayService.wordOfDay)
+                    .padding(.top, 24)
 
                 // Left: weather (top) + calendar (bottom). Right: news stack.
                 HStack(alignment: .top, spacing: 32) {
@@ -52,6 +56,7 @@ struct DashboardView: View {
         }
         .onReceive(clockTimer) { date in
             currentDate = date
+            wordOfDayService.pick(for: date)
         }
         .onReceive(weatherRefreshTimer) { _ in
             Task { await refreshWeather() }
@@ -65,6 +70,7 @@ struct DashboardView: View {
         .task {
             locationService.requestLocation()
             musicPlayer.start()
+            wordOfDayService.load()
             await refreshWeather()
             await newsService.refresh()
         }

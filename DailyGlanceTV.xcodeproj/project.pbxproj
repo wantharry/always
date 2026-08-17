@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0935B35D0C7F9070239EB905 /* WordOfDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B0A3716CDE80D0E51E1851 /* WordOfDayView.swift */; };
 		0EA27186D632EB794F53D5A4 /* DashboardTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E0E7E6E37F594120E437F /* DashboardTheme.swift */; };
 		1A3689C9C1E30ECDA9ADF0CF /* MusicPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B1B13877D4BF5C00DAE9A3 /* MusicPlayerService.swift */; };
 		243474CF9836A4C0821F578F /* WeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957BDD1A6B0048628A64361 /* WeatherCardView.swift */; };
@@ -14,38 +15,47 @@
 		2BEA015A772772C627D4C955 /* WeatherSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A2C929B15FBBB6E835CA3 /* WeatherSnapshot.swift */; };
 		31BA4674379225C704111A7E /* NewsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435405E6BD15EEEA6646C5E /* NewsStackView.swift */; };
 		325F33E823C87398FC1BC5E3 /* DailyGlanceTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3588080AAA33F877BA85C /* DailyGlanceTVApp.swift */; };
+		6387761ACB2EF409722A010B /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = FC099A86143121D63723584D /* words.json */; };
 		6D1089375B1DB37741DD2BFA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892A89B32C77917CDF9AA91 /* LocationService.swift */; };
 		7CBA3468EBB37D153975850E /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33637D8969ED7CA680110D6 /* WeatherService.swift */; };
 		8A9A7274995BD5A342B7ECAE /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88ECDB40F8BB2115CF2DDB6 /* CalendarGridView.swift */; };
 		8D900D3D88F1564C93FC7F38 /* MusicWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812E7DB0FB9379147DEBF59D /* MusicWidgetView.swift */; };
 		901077923975BB48A7038C16 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C717A448B8F6FE2414C30D /* Holiday.swift */; };
+		9BA101055D69236C7D724A68 /* WordOfDayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71E6540CE0D3799326BA09F /* WordOfDayService.swift */; };
 		AEFA094E84E9D9D3CBC479FA /* NewsHeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E23C662423E567A5CA10A5 /* NewsHeadline.swift */; };
 		C9E5B6E9C6BAE601E22F0CAB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6527BBEF51920B582BD4A /* DashboardView.swift */; };
 		D46DD5F2C1BDCE7CDAFC22BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9673D80706A1BE418906BC3E /* Assets.xcassets */; };
 		D5D4827FA0871743D7226870 /* HolidayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF310BBEC23912059114586F /* HolidayService.swift */; };
 		D7D4DE88AB873B40B3C59939 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E380AB4C38843F87FAA26F1 /* ClockView.swift */; };
+		E89226A6280AB0B0B759F0B6 /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D622CE7C97808414614F318 /* MoonPhase.swift */; };
+		EF58C96D4ACD2C192810C5BB /* WordOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F3490AA2803AA05753D20 /* WordOfDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D622CE7C97808414614F318 /* MoonPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhase.swift; sourceTree = "<group>"; };
 		5435405E6BD15EEEA6646C5E /* NewsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStackView.swift; sourceTree = "<group>"; };
 		558D9F6F82BA4DA2D06B0D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5892A89B32C77917CDF9AA91 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		70C6527BBEF51920B582BD4A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		812E7DB0FB9379147DEBF59D /* MusicWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicWidgetView.swift; sourceTree = "<group>"; };
+		81B0A3716CDE80D0E51E1851 /* WordOfDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayView.swift; sourceTree = "<group>"; };
 		9673D80706A1BE418906BC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E380AB4C38843F87FAA26F1 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A2A3588080AAA33F877BA85C /* DailyGlanceTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGlanceTVApp.swift; sourceTree = "<group>"; };
+		A71E6540CE0D3799326BA09F /* WordOfDayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDayService.swift; sourceTree = "<group>"; };
 		A7E23C662423E567A5CA10A5 /* NewsHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeadline.swift; sourceTree = "<group>"; };
 		A957BDD1A6B0048628A64361 /* WeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardView.swift; sourceTree = "<group>"; };
 		B0C717A448B8F6FE2414C30D /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		B6B1B13877D4BF5C00DAE9A3 /* MusicPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerService.swift; sourceTree = "<group>"; };
 		BD7A2C929B15FBBB6E835CA3 /* WeatherSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSnapshot.swift; sourceTree = "<group>"; };
+		C71F3490AA2803AA05753D20 /* WordOfDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfDay.swift; sourceTree = "<group>"; };
 		C76E0E7E6E37F594120E437F /* DashboardTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTheme.swift; sourceTree = "<group>"; };
 		CE4D5A3C7B6AA964C1343DB5 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		D88ECDB40F8BB2115CF2DDB6 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		EF310BBEC23912059114586F /* HolidayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayService.swift; sourceTree = "<group>"; };
 		F33637D8969ED7CA680110D6 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		F6D22F3FB233DC246AC05036 /* DailyGlanceTV.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DailyGlanceTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC099A86143121D63723584D /* words.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -58,9 +68,18 @@
 				812E7DB0FB9379147DEBF59D /* MusicWidgetView.swift */,
 				5435405E6BD15EEEA6646C5E /* NewsStackView.swift */,
 				A957BDD1A6B0048628A64361 /* WeatherCardView.swift */,
+				81B0A3716CDE80D0E51E1851 /* WordOfDayView.swift */,
 				334394D287BE21E4001D8EDB /* Shared */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2476E84CA0CEF97A3BA5AD78 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC099A86143121D63723584D /* words.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		334394D287BE21E4001D8EDB /* Shared */ = {
@@ -78,6 +97,7 @@
 				558D9F6F82BA4DA2D06B0D3C /* Info.plist */,
 				9238878C3AC6D281B350609A /* App */,
 				946A581F0F39D551ACACB324 /* Models */,
+				2476E84CA0CEF97A3BA5AD78 /* Resources */,
 				84CCD66785A727D56E7753DC /* Services */,
 				0485D98072E277472B491363 /* Views */,
 			);
@@ -92,6 +112,7 @@
 				B6B1B13877D4BF5C00DAE9A3 /* MusicPlayerService.swift */,
 				CE4D5A3C7B6AA964C1343DB5 /* NewsService.swift */,
 				F33637D8969ED7CA680110D6 /* WeatherService.swift */,
+				A71E6540CE0D3799326BA09F /* WordOfDayService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -124,8 +145,10 @@
 			isa = PBXGroup;
 			children = (
 				B0C717A448B8F6FE2414C30D /* Holiday.swift */,
+				2D622CE7C97808414614F318 /* MoonPhase.swift */,
 				A7E23C662423E567A5CA10A5 /* NewsHeadline.swift */,
 				BD7A2C929B15FBBB6E835CA3 /* WeatherSnapshot.swift */,
+				C71F3490AA2803AA05753D20 /* WordOfDay.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D46DD5F2C1BDCE7CDAFC22BD /* Assets.xcassets in Resources */,
+				6387761ACB2EF409722A010B /* words.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +233,7 @@
 				901077923975BB48A7038C16 /* Holiday.swift in Sources */,
 				D5D4827FA0871743D7226870 /* HolidayService.swift in Sources */,
 				6D1089375B1DB37741DD2BFA /* LocationService.swift in Sources */,
+				E89226A6280AB0B0B759F0B6 /* MoonPhase.swift in Sources */,
 				1A3689C9C1E30ECDA9ADF0CF /* MusicPlayerService.swift in Sources */,
 				8D900D3D88F1564C93FC7F38 /* MusicWidgetView.swift in Sources */,
 				AEFA094E84E9D9D3CBC479FA /* NewsHeadline.swift in Sources */,
@@ -217,6 +242,9 @@
 				243474CF9836A4C0821F578F /* WeatherCardView.swift in Sources */,
 				7CBA3468EBB37D153975850E /* WeatherService.swift in Sources */,
 				2BEA015A772772C627D4C955 /* WeatherSnapshot.swift in Sources */,
+				EF58C96D4ACD2C192810C5BB /* WordOfDay.swift in Sources */,
+				9BA101055D69236C7D724A68 /* WordOfDayService.swift in Sources */,
+				0935B35D0C7F9070239EB905 /* WordOfDayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

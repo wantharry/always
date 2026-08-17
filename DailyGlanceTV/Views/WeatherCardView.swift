@@ -38,6 +38,22 @@ struct WeatherCardView: View {
                     }
                     .font(.system(size: 18, weight: .semibold))
 
+                    Divider().overlay(Color.white.opacity(0.12))
+
+                    HStack(spacing: 18) {
+                        Label(snapshot.sunrise, systemImage: "sunrise.fill")
+                            .foregroundStyle(.white.opacity(0.65))
+                        Label(snapshot.sunset, systemImage: "sunset.fill")
+                            .foregroundStyle(.white.opacity(0.65))
+                    }
+                    .font(.system(size: 15, weight: .medium))
+
+                    if let aqi = snapshot.aqi {
+                        Label("AQI \(aqi) · \(snapshot.aqiLabel)", systemImage: "aqi.medium")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundStyle(.white.opacity(0.65))
+                    }
+
                     Text(snapshot.locationName)
                         .font(.system(size: 16))
                         .foregroundStyle(.white.opacity(0.5))
