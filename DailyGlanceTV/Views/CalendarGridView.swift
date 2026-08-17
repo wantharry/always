@@ -59,9 +59,9 @@ struct CalendarGridView: View {
 
     var body: some View {
         DashboardCard {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text(monthTitle.uppercased())
-                    .font(.system(size: 17, weight: .bold))
+                    .font(.system(size: 24, weight: .bold))
                     .tracking(1.5)
                     .foregroundStyle(.white.opacity(0.55))
 
@@ -75,7 +75,7 @@ struct CalendarGridView: View {
                         HStack(spacing: 0) {
                             ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { day in
                                 Text(day)
-                                    .font(.system(size: 15, weight: .semibold))
+                                    .font(.system(size: 24, weight: .semibold))
                                     .foregroundStyle(.white.opacity(0.4))
                                     .frame(width: grid.size.width / 7, height: rowHeight)
                             }
@@ -90,26 +90,26 @@ struct CalendarGridView: View {
                         }
                     }
                 }
-                .frame(height: 200)
+                .frame(height: 372)
 
                 if let next = nextHoliday {
-                    HStack(spacing: 6) {
+                    HStack(spacing: 8) {
                         Circle()
                             .fill(Color(red: next.country.color.red, green: next.country.color.green, blue: next.country.color.blue))
-                            .frame(width: 8, height: 8)
+                            .frame(width: 10, height: 10)
                         Text("\(next.name) · \(next.country.label)")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(.system(size: 21, weight: .medium))
                             .foregroundStyle(.white.opacity(0.6))
                             .lineLimit(1)
                     }
                 }
 
-                HStack(spacing: 6) {
+                HStack(spacing: 8) {
                     Image(systemName: moonPhase.symbolName)
-                        .font(.system(size: 14))
+                        .font(.system(size: 19))
                         .foregroundStyle(.white.opacity(0.6))
                     Text("\(moonPhase.name) · \(moonPhase.illumination)%")
-                        .font(.system(size: 16, weight: .medium))
+                        .font(.system(size: 21, weight: .medium))
                         .foregroundStyle(.white.opacity(0.6))
                         .lineLimit(1)
                 }
@@ -124,19 +124,19 @@ struct CalendarGridView: View {
         if let day {
             let dayHolidays = holidaysOn(day: day)
             let isToday = day == today
-            VStack(spacing: 1) {
+            VStack(spacing: 2) {
                 Text("\(day)")
-                    .font(.system(size: 13, weight: isToday ? .bold : .regular))
+                    .font(.system(size: 19, weight: isToday ? .bold : .regular))
                     .foregroundStyle(isToday ? Color(red: 0.15, green: 0.12, blue: 0.32) : .white.opacity(0.85))
-                    .frame(width: 22, height: 22)
+                    .frame(width: 40, height: 40)
                     .background(isToday ? Circle().fill(Color.white.opacity(0.9)) : nil)
 
                 if let first = dayHolidays.first {
                     Circle()
                         .fill(Color(red: first.country.color.red, green: first.country.color.green, blue: first.country.color.blue))
-                        .frame(width: 4, height: 4)
+                        .frame(width: 6, height: 6)
                 } else {
-                    Color.clear.frame(width: 4, height: 4)
+                    Color.clear.frame(width: 6, height: 6)
                 }
             }
         } else {

@@ -27,14 +27,14 @@ struct DashboardView: View {
                 // Top center: clock + date
                 ClockView(date: currentDate)
                     .frame(maxWidth: .infinity)
-                    .padding(.top, 20)
+                    .padding(.top, 14)
 
                 WordOfDayView(wordOfDay: wordOfDayService.wordOfDay)
-                    .padding(.top, 12)
+                    .padding(.top, 8)
 
                 // Left: weather (top) + calendar (bottom). Right: news stack.
                 HStack(alignment: .top, spacing: 32) {
-                    VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 12) {
                         WeatherCardView(snapshot: weatherService.snapshot, errorMessage: weatherService.errorMessage)
                         CalendarGridView(date: currentDate)
                     }
@@ -43,7 +43,7 @@ struct DashboardView: View {
                     NewsStackView(headlines: newsService.headlines)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding(.top, 18)
+                .padding(.top, 14)
                 .frame(maxHeight: .infinity)
 
                 HStack {
@@ -55,10 +55,10 @@ struct DashboardView: View {
                         onToggle: { musicPlayer.toggle() }
                     )
                 }
-                .padding(.top, 10)
+                .padding(.top, 8)
             }
             .padding(.horizontal, 64)
-            .padding(.vertical, 22)
+            .padding(.vertical, 16)
         }
         .onReceive(clockTimer) { date in
             currentDate = date
