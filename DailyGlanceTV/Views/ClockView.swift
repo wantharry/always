@@ -22,20 +22,20 @@ struct ClockView: View {
     }
 
     var body: some View {
-        VStack(spacing: 8) {
-            HStack(alignment: .top, spacing: 12) {
+        VStack(spacing: 10) {
+            HStack(alignment: .top, spacing: 14) {
                 Text(timeString)
-                    .font(.system(size: 148, weight: .heavy, design: .rounded))
+                    .font(DashboardTheme.displayFont(size: 188))
                     .foregroundStyle(.white)
                     .monospacedDigit()
                 Text(periodString.uppercased())
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .font(DashboardTheme.displayFontMedium(size: 36))
                     .foregroundStyle(.white.opacity(0.75))
-                    .padding(.top, 30)
+                    .padding(.top, 38)
             }
             Text(dateString)
-                .font(.system(size: 32, weight: .medium, design: .rounded))
-                .foregroundStyle(.white.opacity(0.85))
+                .font(DashboardTheme.displayFontMedium(size: 38))
+                .foregroundStyle(.white.opacity(0.88))
         }
         .shadow(color: .black.opacity(0.25), radius: 20, y: 8)
     }

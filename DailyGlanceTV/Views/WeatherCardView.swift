@@ -8,47 +8,47 @@ struct WeatherCardView: View {
         DashboardCard {
             VStack(alignment: .leading, spacing: 14) {
                 Text("WEATHER")
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.system(size: 15, weight: .bold))
                     .tracking(1.5)
                     .foregroundStyle(.white.opacity(0.55))
 
                 if let snapshot {
-                    HStack(spacing: 16) {
+                    HStack(spacing: 18) {
                         Image(systemName: snapshot.symbolName)
-                            .font(.system(size: 44))
+                            .font(.system(size: 54))
                             .foregroundStyle(.white)
                             .symbolRenderingMode(.multicolor)
 
                         VStack(alignment: .leading, spacing: 2) {
                             Text("\(snapshot.temperature)°")
-                                .font(.system(size: 44, weight: .bold, design: .rounded))
+                                .font(DashboardTheme.displayFont(size: 54))
                                 .foregroundStyle(.white)
                             Text(snapshot.condition)
-                                .font(.system(size: 17, weight: .medium))
+                                .font(.system(size: 19, weight: .medium))
                                 .foregroundStyle(.white.opacity(0.75))
                         }
                     }
 
-                    HStack(spacing: 16) {
+                    HStack(spacing: 18) {
                         Label("\(snapshot.highToday)°", systemImage: "arrow.up")
                             .foregroundStyle(.white.opacity(0.7))
                         Label("\(snapshot.lowToday)°", systemImage: "arrow.down")
                             .foregroundStyle(.white.opacity(0.7))
                         Spacer()
                     }
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.system(size: 18, weight: .semibold))
 
                     Text(snapshot.locationName)
-                        .font(.system(size: 15))
+                        .font(.system(size: 16))
                         .foregroundStyle(.white.opacity(0.5))
                 } else {
                     Text(errorMessage ?? "Loading weather…")
-                        .font(.system(size: 18))
+                        .font(.system(size: 19))
                         .foregroundStyle(.white.opacity(0.6))
                 }
             }
-            .padding(24)
-            .frame(width: 320, alignment: .leading)
+            .padding(26)
+            .frame(width: 360, alignment: .leading)
         }
     }
 }

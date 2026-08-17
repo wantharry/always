@@ -12,6 +12,7 @@
 		243474CF9836A4C0821F578F /* WeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A957BDD1A6B0048628A64361 /* WeatherCardView.swift */; };
 		25F8EAF14BC523D73D74861E /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5A3C7B6AA964C1343DB5 /* NewsService.swift */; };
 		2BEA015A772772C627D4C955 /* WeatherSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7A2C929B15FBBB6E835CA3 /* WeatherSnapshot.swift */; };
+		31BA4674379225C704111A7E /* NewsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5435405E6BD15EEEA6646C5E /* NewsStackView.swift */; };
 		325F33E823C87398FC1BC5E3 /* DailyGlanceTVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3588080AAA33F877BA85C /* DailyGlanceTVApp.swift */; };
 		6D1089375B1DB37741DD2BFA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892A89B32C77917CDF9AA91 /* LocationService.swift */; };
 		7CBA3468EBB37D153975850E /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33637D8969ED7CA680110D6 /* WeatherService.swift */; };
@@ -22,11 +23,11 @@
 		C9E5B6E9C6BAE601E22F0CAB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C6527BBEF51920B582BD4A /* DashboardView.swift */; };
 		D46DD5F2C1BDCE7CDAFC22BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9673D80706A1BE418906BC3E /* Assets.xcassets */; };
 		D5D4827FA0871743D7226870 /* HolidayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF310BBEC23912059114586F /* HolidayService.swift */; };
-		D75F37F6EBEA775EE6C5413D /* NewsTickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A933203DD634A57682C2B43B /* NewsTickerView.swift */; };
 		D7D4DE88AB873B40B3C59939 /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E380AB4C38843F87FAA26F1 /* ClockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5435405E6BD15EEEA6646C5E /* NewsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStackView.swift; sourceTree = "<group>"; };
 		558D9F6F82BA4DA2D06B0D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5892A89B32C77917CDF9AA91 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		70C6527BBEF51920B582BD4A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		9E380AB4C38843F87FAA26F1 /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		A2A3588080AAA33F877BA85C /* DailyGlanceTVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyGlanceTVApp.swift; sourceTree = "<group>"; };
 		A7E23C662423E567A5CA10A5 /* NewsHeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeadline.swift; sourceTree = "<group>"; };
-		A933203DD634A57682C2B43B /* NewsTickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTickerView.swift; sourceTree = "<group>"; };
 		A957BDD1A6B0048628A64361 /* WeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardView.swift; sourceTree = "<group>"; };
 		B0C717A448B8F6FE2414C30D /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
 		B6B1B13877D4BF5C00DAE9A3 /* MusicPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerService.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 				9E380AB4C38843F87FAA26F1 /* ClockView.swift */,
 				70C6527BBEF51920B582BD4A /* DashboardView.swift */,
 				812E7DB0FB9379147DEBF59D /* MusicWidgetView.swift */,
-				A933203DD634A57682C2B43B /* NewsTickerView.swift */,
+				5435405E6BD15EEEA6646C5E /* NewsStackView.swift */,
 				A957BDD1A6B0048628A64361 /* WeatherCardView.swift */,
 				334394D287BE21E4001D8EDB /* Shared */,
 			);
@@ -213,7 +213,7 @@
 				8D900D3D88F1564C93FC7F38 /* MusicWidgetView.swift in Sources */,
 				AEFA094E84E9D9D3CBC479FA /* NewsHeadline.swift in Sources */,
 				25F8EAF14BC523D73D74861E /* NewsService.swift in Sources */,
-				D75F37F6EBEA775EE6C5413D /* NewsTickerView.swift in Sources */,
+				31BA4674379225C704111A7E /* NewsStackView.swift in Sources */,
 				243474CF9836A4C0821F578F /* WeatherCardView.swift in Sources */,
 				7CBA3468EBB37D153975850E /* WeatherService.swift in Sources */,
 				2BEA015A772772C627D4C955 /* WeatherSnapshot.swift in Sources */,

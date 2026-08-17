@@ -1,23 +1,35 @@
 import SwiftUI
 
 enum DashboardTheme {
-    /// Returns a gradient that shifts with the time of day.
+    /// Returns a gradient that shifts subtly with the time of day. Always
+    /// dark/low-luminance so the app is safe to leave on a TV continuously
+    /// (no bright daytime mode, no OLED burn-in risk).
     static func gradient(for date: Date) -> [Color] {
         let hour = Calendar.current.component(.hour, from: date)
         switch hour {
-        case 5..<8:   // dawn
-            return [Color(red: 0.98, green: 0.62, blue: 0.42), Color(red: 0.55, green: 0.35, blue: 0.55)]
-        case 8..<17:  // day
-            return [Color(red: 0.30, green: 0.55, blue: 0.85), Color(red: 0.55, green: 0.75, blue: 0.92)]
-        case 17..<20: // dusk
-            return [Color(red: 0.95, green: 0.45, blue: 0.35), Color(red: 0.35, green: 0.22, blue: 0.55)]
-        default:      // night
-            return [Color(red: 0.05, green: 0.07, blue: 0.18), Color(red: 0.15, green: 0.12, blue: 0.32)]
+        case 5..<8:   // dawn - dark navy into muted maroon
+            return [Color(red: 0.07, green: 0.06, blue: 0.14), Color(red: 0.20, green: 0.10, blue: 0.14)]
+        case 8..<17:  // day - dark slate blue
+            return [Color(red: 0.04, green: 0.08, blue: 0.16), Color(red: 0.10, green: 0.16, blue: 0.24)]
+        case 17..<20: // dusk - dark plum
+            return [Color(red: 0.14, green: 0.06, blue: 0.12), Color(red: 0.08, green: 0.05, blue: 0.18)]
+        default:      // night - near-black indigo
+            return [Color(red: 0.02, green: 0.03, blue: 0.08), Color(red: 0.06, green: 0.05, blue: 0.14)]
         }
     }
 
     static let cardFill = Color.white.opacity(0.10)
     static let cardBorder = Color.white.opacity(0.18)
+
+    /// Display font for hero elements (clock, big numbers). Falls back to
+    /// the system rounded font automatically if unavailable.
+    static func displayFont(size: CGFloat, weight: Font.Weight = .heavy) -> Font {
+        .custom("AvenirNext-Heavy", size: size)
+    }
+
+    static func displayFontMedium(size: CGFloat) -> Font {
+        .custom("AvenirNext-DemiBold", size: size)
+    }
 }
 
 struct DashboardBackground: View {

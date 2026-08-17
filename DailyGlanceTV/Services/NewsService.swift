@@ -1,16 +1,20 @@
 import Foundation
+import SwiftUI
 
 @MainActor
 final class NewsService: ObservableObject {
     @Published private(set) var headlines: [NewsHeadline] = []
 
     func refresh() async {
-        guard let url = URL(string: "https://feeds.bbci.co.uk/news/rss.xml") else { return }
+        guard let url = URL(string: "https://feeds.npr.org/1001/rss.xml") else { return }
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let parser = RSSParser()
             let titles = parser.parse(data: data)
-            headlines = titles.prefix(10).map { NewsHeadline(title: $0) }
+            let fresh = titles.prefix(10).map { NewsHeadline(title: $0) }
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                headlines = fresh
+            }
         } catch {
             // Keep any previously loaded headlines on failure.
         }

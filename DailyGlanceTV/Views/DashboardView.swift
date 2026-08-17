@@ -16,20 +16,28 @@ struct DashboardView: View {
         ZStack {
             DashboardBackground(date: currentDate)
 
-            VStack(spacing: 36) {
-                Spacer(minLength: 0)
-
+            VStack(spacing: 0) {
+                // Top center: clock + date
                 ClockView(date: currentDate)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 56)
 
-                HStack(alignment: .top, spacing: 28) {
-                    WeatherCardView(snapshot: weatherService.snapshot, errorMessage: weatherService.errorMessage)
-                    CalendarGridView(date: currentDate)
+                // Left: weather (top) + calendar (bottom). Right: news stack.
+                HStack(alignment: .top, spacing: 32) {
+                    VStack(alignment: .leading, spacing: 28) {
+                        WeatherCardView(snapshot: weatherService.snapshot, errorMessage: weatherService.errorMessage)
+                        CalendarGridView(date: currentDate)
+                        Spacer(minLength: 0)
+                    }
+                    .frame(width: 360)
+
+                    NewsStackView(headlines: newsService.headlines)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .padding(.top, 44)
 
-                Spacer(minLength: 0)
-
-                HStack(alignment: .center, spacing: 20) {
-                    NewsTickerView(headlines: newsService.headlines)
+                HStack {
+                    Spacer()
                     MusicWidgetView(
                         stationName: musicPlayer.stationName,
                         stationSource: musicPlayer.stationSource,
@@ -37,8 +45,10 @@ struct DashboardView: View {
                         onToggle: { musicPlayer.toggle() }
                     )
                 }
+                .padding(.top, 24)
             }
-            .padding(64)
+            .padding(.horizontal, 64)
+            .padding(.bottom, 48)
         }
         .onReceive(clockTimer) { date in
             currentDate = date

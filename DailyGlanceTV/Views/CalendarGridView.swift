@@ -59,24 +59,24 @@ struct CalendarGridView: View {
         DashboardCard {
             VStack(alignment: .leading, spacing: 12) {
                 Text(monthTitle.uppercased())
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.system(size: 15, weight: .bold))
                     .tracking(1.5)
                     .foregroundStyle(.white.opacity(0.55))
 
-                VStack(spacing: 6) {
+                VStack(spacing: 8) {
                     HStack(spacing: 0) {
                         ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { day in
                             Text(day)
-                                .font(.system(size: 12, weight: .semibold))
+                                .font(.system(size: 14, weight: .semibold))
                                 .foregroundStyle(.white.opacity(0.4))
-                                .frame(width: 28)
+                                .frame(width: 34)
                         }
                     }
                     ForEach(Array(weeks.enumerated()), id: \.offset) { _, week in
                         HStack(spacing: 0) {
                             ForEach(Array(week.enumerated()), id: \.offset) { _, day in
                                 dayCell(day)
-                                    .frame(width: 28, height: 28)
+                                    .frame(width: 34, height: 34)
                             }
                         }
                     }
@@ -86,17 +86,17 @@ struct CalendarGridView: View {
                     HStack(spacing: 6) {
                         Circle()
                             .fill(Color(red: next.country.color.red, green: next.country.color.green, blue: next.country.color.blue))
-                            .frame(width: 7, height: 7)
+                            .frame(width: 8, height: 8)
                         Text("\(next.name) · \(next.country.label)")
-                            .font(.system(size: 13, weight: .medium))
+                            .font(.system(size: 15, weight: .medium))
                             .foregroundStyle(.white.opacity(0.6))
                             .lineLimit(1)
                     }
                     .padding(.top, 2)
                 }
             }
-            .padding(22)
-            .frame(width: 300, alignment: .leading)
+            .padding(26)
+            .frame(width: 360, alignment: .leading)
         }
     }
 
@@ -105,19 +105,19 @@ struct CalendarGridView: View {
         if let day {
             let dayHolidays = holidaysOn(day: day)
             let isToday = day == today
-            VStack(spacing: 2) {
+            VStack(spacing: 3) {
                 Text("\(day)")
-                    .font(.system(size: 13, weight: isToday ? .bold : .regular))
+                    .font(.system(size: 15, weight: isToday ? .bold : .regular))
                     .foregroundStyle(isToday ? Color(red: 0.15, green: 0.12, blue: 0.32) : .white.opacity(0.85))
-                    .frame(width: 22, height: 22)
+                    .frame(width: 26, height: 26)
                     .background(isToday ? Circle().fill(Color.white.opacity(0.9)) : nil)
 
                 if let first = dayHolidays.first {
                     Circle()
                         .fill(Color(red: first.country.color.red, green: first.country.color.green, blue: first.country.color.blue))
-                        .frame(width: 4, height: 4)
+                        .frame(width: 5, height: 5)
                 } else {
-                    Color.clear.frame(width: 4, height: 4)
+                    Color.clear.frame(width: 5, height: 5)
                 }
             }
         } else {
