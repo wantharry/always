@@ -1,0 +1,42 @@
+name: DailyGlanceTV
+options:
+  bundleIdPrefix: com.wantharry
+  deploymentTarget:
+    tvOS: "17.0"
+settings:
+  base:
+    DEVELOPMENT_TEAM: KPNYT6G5XD
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+    TVOS_DEPLOYMENT_TARGET: "17.0"
+targets:
+  DailyGlanceTV:
+    type: application
+    platform: tvOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: DailyGlanceTV
+    info:
+      path: DailyGlanceTV/Info.plist
+      properties:
+        CFBundleDisplayName: Daily Glance
+        LSRequiresIPhoneOS: false
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities: [arm64]
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationLandscapeRight
+          - UIInterfaceOrientationLandscapeLeft
+        NSLocationWhenInUseUsageDescription: "Daily Glance uses your approximate location to show local weather."
+        CFBundleIcons:
+          CFBundlePrimaryIcon: "App Icon"
+        TVTopShelfImage:
+          TVTopShelfPrimaryImage: "Top Shelf Image"
+          TVTopShelfPrimaryImageWide: "Top Shelf Image Wide"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.wantharry.DailyGlanceTV
+        PRODUCT_NAME: DailyGlanceTV
+        ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
+        TARGETED_DEVICE_FAMILY: "3"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
