@@ -17,6 +17,11 @@ struct DashboardView: View {
 
     @State private var currentDate = Date()
     @State private var contentHeight: CGFloat = 0
+    @State private var awakeSince = Date()
+
+    /// Keep the screen awake for a full day of continuous display, then
+    /// let tvOS sleep/screensave normally rather than staying on forever.
+    private let maxAwakeDuration: TimeInterval = 24 * 60 * 60
 
     private let clockTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private let weatherRefreshTimer = Timer.publish(every: 20 * 60, on: .main, in: .common).autoconnect()
@@ -81,6 +86,10 @@ struct DashboardView: View {
         .onReceive(clockTimer) { date in
             currentDate = date
             wordOfDayService.pick(for: date)
+            if UIApplication.shared.isIdleTimerDisabled,
+               date.timeIntervalSince(awakeSince) > maxAwakeDuration {
+                UIApplication.shared.isIdleTimerDisabled = false
+            }
         }
         .onReceive(weatherRefreshTimer) { _ in
             Task { await refreshWeather() }
@@ -92,6 +101,7 @@ struct DashboardView: View {
             Task { await refreshWeather() }
         }
         .onAppear {
+            awakeSince = Date()
             UIApplication.shared.isIdleTimerDisabled = true
         }
         .task {
