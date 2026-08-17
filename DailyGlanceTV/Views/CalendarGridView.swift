@@ -59,26 +59,26 @@ struct CalendarGridView: View {
 
     var body: some View {
         DashboardCard {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 14) {
                 Text(monthTitle.uppercased())
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: 17, weight: .bold))
                     .tracking(1.5)
                     .foregroundStyle(.white.opacity(0.55))
 
-                VStack(spacing: 8) {
+                VStack(spacing: 10) {
                     HStack(spacing: 0) {
                         ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { day in
                             Text(day)
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.system(size: 17, weight: .semibold))
                                 .foregroundStyle(.white.opacity(0.4))
-                                .frame(width: 34)
+                                .frame(width: 48)
                         }
                     }
                     ForEach(Array(weeks.enumerated()), id: \.offset) { _, week in
                         HStack(spacing: 0) {
                             ForEach(Array(week.enumerated()), id: \.offset) { _, day in
                                 dayCell(day)
-                                    .frame(width: 34, height: 34)
+                                    .frame(width: 48, height: 44)
                             }
                         }
                     }
@@ -88,9 +88,9 @@ struct CalendarGridView: View {
                     HStack(spacing: 6) {
                         Circle()
                             .fill(Color(red: next.country.color.red, green: next.country.color.green, blue: next.country.color.blue))
-                            .frame(width: 8, height: 8)
+                            .frame(width: 9, height: 9)
                         Text("\(next.name) · \(next.country.label)")
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.system(size: 17, weight: .medium))
                             .foregroundStyle(.white.opacity(0.6))
                             .lineLimit(1)
                     }
@@ -99,16 +99,16 @@ struct CalendarGridView: View {
 
                 HStack(spacing: 6) {
                     Image(systemName: moonPhase.symbolName)
-                        .font(.system(size: 13))
+                        .font(.system(size: 15))
                         .foregroundStyle(.white.opacity(0.6))
                     Text("\(moonPhase.name) · \(moonPhase.illumination)%")
-                        .font(.system(size: 15, weight: .medium))
+                        .font(.system(size: 17, weight: .medium))
                         .foregroundStyle(.white.opacity(0.6))
                         .lineLimit(1)
                 }
             }
             .padding(26)
-            .frame(width: 360, alignment: .leading)
+            .frame(width: 400, alignment: .leading)
         }
     }
 
@@ -117,19 +117,19 @@ struct CalendarGridView: View {
         if let day {
             let dayHolidays = holidaysOn(day: day)
             let isToday = day == today
-            VStack(spacing: 3) {
+            VStack(spacing: 4) {
                 Text("\(day)")
-                    .font(.system(size: 15, weight: isToday ? .bold : .regular))
+                    .font(.system(size: 19, weight: isToday ? .bold : .regular))
                     .foregroundStyle(isToday ? Color(red: 0.15, green: 0.12, blue: 0.32) : .white.opacity(0.85))
-                    .frame(width: 26, height: 26)
+                    .frame(width: 34, height: 34)
                     .background(isToday ? Circle().fill(Color.white.opacity(0.9)) : nil)
 
                 if let first = dayHolidays.first {
                     Circle()
                         .fill(Color(red: first.country.color.red, green: first.country.color.green, blue: first.country.color.blue))
-                        .frame(width: 5, height: 5)
+                        .frame(width: 6, height: 6)
                 } else {
-                    Color.clear.frame(width: 5, height: 5)
+                    Color.clear.frame(width: 6, height: 6)
                 }
             }
         } else {

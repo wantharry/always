@@ -64,7 +64,7 @@ struct WeatherCardView: View {
                 }
             }
             .padding(26)
-            .frame(width: 360, alignment: .leading)
+            .frame(width: 400, alignment: .leading)
         }
     }
 }
