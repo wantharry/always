@@ -1,13 +1,6 @@
 import SwiftUI
 import UIKit
 
-private struct ContentHeightKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
-
 struct DashboardView: View {
     @StateObject private var locationService = LocationService()
     @StateObject private var weatherService = WeatherService()
@@ -16,7 +9,6 @@ struct DashboardView: View {
     @StateObject private var wordOfDayService = WordOfDayService()
 
     @State private var currentDate = Date()
-    @State private var contentHeight: CGFloat = 0
     @State private var awakeSince = Date()
 
     /// Keep the screen awake for a full day of continuous display, then
@@ -28,59 +20,45 @@ struct DashboardView: View {
     private let newsRefreshTimer = Timer.publish(every: 10 * 60, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        GeometryReader { screen in
-            ZStack {
-                DashboardBackground(date: currentDate)
+        ZStack {
+            DashboardBackground(date: currentDate)
 
-                VStack(spacing: 0) {
-                    // Top center: clock + date
-                    ClockView(date: currentDate)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 56)
+            VStack(spacing: 0) {
+                // Top center: clock + date
+                ClockView(date: currentDate)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 20)
 
-                    WordOfDayView(wordOfDay: wordOfDayService.wordOfDay)
-                        .padding(.top, 24)
+                WordOfDayView(wordOfDay: wordOfDayService.wordOfDay)
+                    .padding(.top, 12)
 
-                    // Left: weather (top) + calendar (bottom). Right: news stack.
-                    HStack(alignment: .top, spacing: 32) {
-                        VStack(alignment: .leading, spacing: 28) {
-                            WeatherCardView(snapshot: weatherService.snapshot, errorMessage: weatherService.errorMessage)
-                            CalendarGridView(date: currentDate)
-                        }
-                        .frame(width: 400)
-
-                        NewsStackView(headlines: newsService.headlines)
-                            .frame(maxWidth: .infinity)
+                // Left: weather (top) + calendar (bottom). Right: news stack.
+                HStack(alignment: .top, spacing: 32) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        WeatherCardView(snapshot: weatherService.snapshot, errorMessage: weatherService.errorMessage)
+                        CalendarGridView(date: currentDate)
                     }
-                    .padding(.top, 44)
+                    .frame(width: 420)
 
-                    HStack {
-                        Spacer()
-                        MusicWidgetView(
-                            stationName: musicPlayer.stationName,
-                            stationSource: musicPlayer.stationSource,
-                            isPlaying: musicPlayer.isPlaying,
-                            onToggle: { musicPlayer.toggle() }
-                        )
-                    }
-                    .padding(.top, 24)
+                    NewsStackView(headlines: newsService.headlines)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding(.horizontal, 64)
-                .padding(.bottom, 48)
-                .background(
-                    GeometryReader { content in
-                        Color.clear.preference(key: ContentHeightKey.self, value: content.size.height)
-                    }
-                )
-                // Whatever combination of variable-height content shows up
-                // (5- vs 6-week months, holiday line present or not, news
-                // headline count), scale the whole dashboard down just
-                // enough to stay on-screen instead of running off the
-                // bottom edge. Never scales up past 1.
-                .scaleEffect(scaleToFit(in: screen.size.height), anchor: .top)
-                .frame(width: screen.size.width, height: screen.size.height, alignment: .top)
+                .padding(.top, 18)
+                .frame(maxHeight: .infinity)
+
+                HStack {
+                    Spacer()
+                    MusicWidgetView(
+                        stationName: musicPlayer.stationName,
+                        stationSource: musicPlayer.stationSource,
+                        isPlaying: musicPlayer.isPlaying,
+                        onToggle: { musicPlayer.toggle() }
+                    )
+                }
+                .padding(.top, 10)
             }
-            .onPreferenceChange(ContentHeightKey.self) { contentHeight = $0 }
+            .padding(.horizontal, 64)
+            .padding(.vertical, 22)
         }
         .onReceive(clockTimer) { date in
             currentDate = date
@@ -110,11 +88,6 @@ struct DashboardView: View {
             await refreshWeather()
             await newsService.refresh()
         }
-    }
-
-    private func scaleToFit(in availableHeight: CGFloat) -> CGFloat {
-        guard contentHeight > 0, availableHeight > 0, contentHeight > availableHeight else { return 1 }
-        return availableHeight / contentHeight
     }
 
     private func refreshWeather() async {

@@ -9,21 +9,21 @@ struct NewsStackView: View {
 
     var body: some View {
         DashboardCard {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 14) {
                 Label("NPR NEWS", systemImage: "newspaper.fill")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: 16, weight: .bold))
                     .tracking(1.5)
                     .foregroundStyle(.white.opacity(0.55))
 
                 if topFive.isEmpty {
                     Text("Loading headlines…")
-                        .font(.system(size: 18))
+                        .font(.system(size: 20))
                         .foregroundStyle(.white.opacity(0.6))
                 } else {
                     VStack(alignment: .leading, spacing: 14) {
                         ForEach(topFive) { headline in
                             Text(headline.title)
-                                .font(.system(size: 21, weight: .medium))
+                                .font(.system(size: 23, weight: .medium))
                                 .foregroundStyle(.white)
                                 .lineLimit(2)
                                 .fixedSize(horizontal: false, vertical: true)
@@ -42,7 +42,7 @@ struct NewsStackView: View {
 
                 Spacer(minLength: 0)
             }
-            .padding(26)
+            .padding(20)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
     }
